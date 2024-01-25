@@ -1,4 +1,5 @@
 import 'package:fall_detection_app/constants/constants.dart';
+import 'package:fall_detection_app/helper/Styles.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
 import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,10 +17,21 @@ class HomepageViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final size =MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(icon: Icon(Icons.menu),onPressed: (){},),
+        leadingWidth: 10,
+        title: Text('Homepage'),
+        titleTextStyle: Styles.TextStyle18,
+        centerTitle: true,
+        actions: [
+          IconButton(icon: Icon(Icons.search),onPressed: (){},)
+        ],
+      ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              customAppbar(),
+              //customAppbar(),
               SizedBox(height: 3,),
               SizedBox(
                 height: 80,
