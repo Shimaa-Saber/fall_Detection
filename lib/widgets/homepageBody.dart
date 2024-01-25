@@ -2,6 +2,7 @@ import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart'
 import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'PatiantsListView.dart';
@@ -20,7 +21,7 @@ class HomepageViewBody extends StatelessWidget {
               customAppbar(),
               SizedBox(height: 3,),
               SizedBox(
-                height: 100,
+                height: 80,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: ListView.builder(
@@ -70,85 +71,69 @@ class HomepageViewBody extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: SizedBox(
-          height: size.height*0.09,
-          child: BottomAppBar(
-            notchMargin: 5.0,
-            shape: CircularNotchedRectangle(),
-            color:  Colors.white10,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {  },
-                        icon: Icon(
-                          Icons.home,
-                          color: Colors.black,
-                        ),
+        child: Expanded(
+          child: SizedBox(
+            height: 70,
+            width: size.width*0.1,
+            child: BottomAppBar(
+              notchMargin: 5.0,
+              shape: CircularNotchedRectangle(),
+              color:  Colors.white10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: IconButton(
+                      onPressed: () {  },
+                      icon: Icon(
+                        Icons.home,
+                        color: Colors.black,
+                     //   size: 15,
                       ),
-
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {  },
-                        icon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
+                  Padding(
+                    padding:
+                    const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
+                    child: IconButton(
+                      onPressed: () {  },
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      //  size: 15,
                       ),
-
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding:
-                  const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {  },
-                        icon: Icon(
-                          FontAwesomeIcons.solidComment,
-                          color: Colors.black,
-                        ),
+                  Padding(
+                    padding:
+                    const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
+                    child: IconButton(
+                      onPressed: () {  },
+                      icon: Icon(
+                        FontAwesomeIcons.solidComment,
+                        color: Colors.black,
+                     //   size: 15,
                       ),
-
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, Cargiverprofile.id);
-                        },
-                        icon: Icon(
-                          CupertinoIcons.person_solid,
-                          color: Colors.black,
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, Cargiverprofile.id);
+                      },
+                      icon: Icon(
+                        CupertinoIcons.person_solid,
+                        color: Colors.black,
+                       // size: 15,
+
                       ),
-
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
