@@ -1,3 +1,4 @@
+import 'package:fall_detection_app/constants/constants.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
 import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,8 +61,8 @@ class HomepageViewBody extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
-        backgroundColor: Colors.black87,
-        foregroundColor: Colors.yellow,
+        backgroundColor:Colors.black,
+        foregroundColor: Colors.yellowAccent,
         elevation: 0,
         // shape: BeveledRectangleBorder(
         //     // borderRadius: BorderRadius.circular(20.0),
@@ -100,7 +101,7 @@ class HomepageViewBody extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {  },
                       icon: Icon(
-                        Icons.search,
+                        FontAwesomeIcons.solidMap,
                         color: Colors.black,
                       //  size: 15,
                       ),
