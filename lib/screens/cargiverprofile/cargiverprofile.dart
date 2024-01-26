@@ -1,5 +1,8 @@
+
+
 import 'package:fall_detection_app/helper/Styles.dart';
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
+import 'package:fall_detection_app/screens/notifications/notifications.dart';
 import 'package:fall_detection_app/widgets/customAppbar.dart';
 import 'package:fall_detection_app/widgets/profile_container.dart';
 import 'package:fall_detection_app/widgets/profleAppbar.dart';
@@ -207,9 +210,11 @@ class Cargiverprofile extends StatelessWidget {
                     padding:
                     const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.pushNamed(context, Notifications.id);
+                      },
                       icon: Icon(
-                        FontAwesomeIcons.solidComment,
+                        Icons.notifications_active,
                         color: Colors.black,
                         //   size: 15,
                       ),

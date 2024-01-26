@@ -3,6 +3,7 @@ import 'package:fall_detection_app/screens/auth/signup_screen.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
 import 'package:fall_detection_app/screens/initial/initial_page.dart';
+import 'package:fall_detection_app/screens/notifications/notifications.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class FallDetectionApp extends StatelessWidget {
         RegisterPage.id: ((context) => RegisterPage()),
         Cargiverprofile.id:((context)=> Cargiverprofile()),
         homepageView.id:((context)=>homepageView()),
+        Notifications.id:((context)=>Notifications())
       },
       initialRoute: InitialPage.id,
     );
