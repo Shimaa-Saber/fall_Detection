@@ -19,6 +19,9 @@ class Cargiverprofile extends StatelessWidget {
     final size =MediaQuery.of(context).size;
     return Scaffold(
     appBar: AppBar(
+      leading: IconButton(
+          onPressed: (){Navigator.pushNamed(context, homepageView.id);},
+          icon: Icon(Icons.arrow_back,color: Colors.black87,)),
       title: Text('Profile'),
       titleTextStyle: Styles.TextStyle16,
       centerTitle: true,
@@ -152,19 +155,7 @@ class Cargiverprofile extends StatelessWidget {
       ),
 
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-        backgroundColor:Colors.black,
-        foregroundColor: Colors.yellowAccent,
-        elevation: 0,
-        // shape: BeveledRectangleBorder(
-        //     // borderRadius: BorderRadius.circular(20.0),
-        //     // side: BorderSide(color: Colors.blue, width: 2.0, style: BorderStyle.solid)
-        //     ),
-        // mini: true,
-      ),
+
 
 
       bottomNavigationBar: Padding(
@@ -174,9 +165,9 @@ class Cargiverprofile extends StatelessWidget {
             height: 70,
             width: size.width*0.1,
             child: BottomAppBar(
-              notchMargin: 5.0,
-              shape: CircularNotchedRectangle(),
-              color:  Colors.white10,
+             // notchMargin: 5.0,
+             // shape: CircularNotchedRectangle(),
+              color:  Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.max,

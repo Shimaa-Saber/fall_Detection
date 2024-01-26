@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:fall_detection_app/constants/constants.dart';
 import 'package:fall_detection_app/helper/Styles.dart';
@@ -73,19 +73,7 @@ class HomepageViewBody extends StatelessWidget {
             ],
           ),
         ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-        backgroundColor:Colors.black,
-        foregroundColor: Colors.yellowAccent,
-        elevation: 0,
-        // shape: BeveledRectangleBorder(
-        //     // borderRadius: BorderRadius.circular(20.0),
-        //     // side: BorderSide(color: Colors.blue, width: 2.0, style: BorderStyle.solid)
-        //     ),
-        // mini: true,
-      ),
+
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Expanded(
@@ -93,9 +81,9 @@ class HomepageViewBody extends StatelessWidget {
             height: 70,
             width: size.width*0.1,
             child: BottomAppBar(
-              notchMargin: 5.0,
-              shape: CircularNotchedRectangle(),
-              color:  Colors.white10,
+           //   notchMargin: 5.0,
+              //shape: CircularNotchedRectangle(),
+              color:  Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.max,
