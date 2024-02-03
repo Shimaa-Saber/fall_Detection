@@ -34,6 +34,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   font_awesome_flutter: ^10.6.0
+  google_maps_flutter: ^2.5.3
+  dio: ^5.4.0
 
 dev_dependencies:
 
