@@ -11,8 +11,7 @@ import '../../helper/errors/failures.dart';
 import 'AuthStates.dart';
 
 class UserCubit extends Cubit<UserState>{
-  UserCubit(super.initialState, this.api);
-
+  UserCubit(this.api) : super(UserInitial());
 
   final ApiConsumer api;
 
@@ -45,7 +44,8 @@ class UserCubit extends Cubit<UserState>{
       emit(SignUpLoading());
       final response = await api.post(
         EndPoint.signUp,
-        isFromData: true,
+
+        //isFromData: true,
         data: {
           ApiKey.userName: signUpName.text,
           ApiKey.userPhoneNumber: signUpPhoneNumber.text,

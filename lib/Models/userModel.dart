@@ -1,4 +1,4 @@
-import '../helper/api_key.dart';
+import '../helper/api/end_ponits.dart';
 
 class UserModel {
   final String image;

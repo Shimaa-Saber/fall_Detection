@@ -1,7 +1,7 @@
 abstract class UserState{}
 
 class SignInLoading extends UserState {}
-
+class UserInitial extends UserState{}
 class SignInSuccess extends UserState {}
 
 class SignInFailure extends UserState {

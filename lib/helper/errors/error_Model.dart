@@ -1,6 +1,8 @@
 
 
-import '../api_key.dart';
+
+
+import '../api/end_ponits.dart';
 
 class ErrorModel {
   final int status;

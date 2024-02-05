@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:fall_detection_app/screens/auth/login_page.dart';
 import 'package:fall_detection_app/screens/auth/signup_screen.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
@@ -6,14 +7,21 @@ import 'package:fall_detection_app/screens/initial/initial_page.dart';
 import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/screens/notifications/notifications.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cache/cache_helper.dart';
+import 'cubits/AuthCubit/AuthCubit.dart';
+import 'helper/api/dio_consumer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper().init();
 
-  runApp(const FallDetectionApp());
+  runApp(
+      BlocProvider(
+        create: (context) => UserCubit(DioConsumer(dio: Dio())),
+
+          child: const FallDetectionApp()));
 }
 
 class FallDetectionApp extends StatelessWidget {
