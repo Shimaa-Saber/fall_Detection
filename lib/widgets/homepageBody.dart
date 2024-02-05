@@ -4,6 +4,7 @@ import 'package:fall_detection_app/constants/constants.dart';
 import 'package:fall_detection_app/helper/Styles.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
+import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/screens/notifications/notifications.dart';
 import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
@@ -105,7 +106,9 @@ class HomepageViewBody extends StatelessWidget {
                     padding:
                     const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.pushNamed(context, MapPage.id);
+                      },
                       icon: Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
