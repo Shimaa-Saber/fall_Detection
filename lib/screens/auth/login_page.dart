@@ -44,6 +44,8 @@ class _LoginPageState extends State<LoginPage> {
             content: Text("success"),
           ),
         );
+
+        Navigator.pushNamed(context, homepageView.id);
       }
 
       else if (state is SignInFailure) {
@@ -138,12 +140,13 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
 
                           if ((context.read<UserCubit>().signInFormKey).currentState!.validate()) {
+                            context.read<UserCubit>().signIn();
                             print('valid');
                           } else {
                             print('not valid');
                           }
-                          context.read<UserCubit>().signIn();
-                          Navigator.pushNamed(context, homepageView.id);
+
+
 
                         },
                         text: 'Log in',

@@ -49,7 +49,9 @@ class _RegisterPageState extends State<RegisterPage> {
       if(state is SignUpSuccess){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(state.message),
+
         ));
+        Navigator.pushNamed(context, homepageView.id);
       }
       else if (state is SignUpFailure) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -172,11 +174,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
                                 if (( context.read<UserCubit>().signUpFormKey).currentState!.validate()) {
                                   print('valid');
+                                  context.read<UserCubit>().signUp();
                                 } else {
                                   print('not valid');
                                 }
-                                context.read<UserCubit>().signUp();
-                                Navigator.pushNamed(context, homepageView.id);
+
+
                               },
                             ),
                             SizedBox(

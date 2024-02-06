@@ -1,3 +1,7 @@
+
+
+import '../../Models/user_model.dart';
+
 abstract class UserState{}
 
 class SignInLoading extends UserState {}
@@ -23,4 +27,19 @@ class SignUpFailure extends UserState {
   final String errMessage;
 
   SignUpFailure({required this.errMessage});
+}
+
+
+class UserLoading extends UserState{}
+class UserSuccess extends UserState{
+  final  UserModel user;
+
+  UserSuccess({required this.user});
+}
+class Userfailer extends UserState{
+  final String errorMessage;
+
+  Userfailer({ required this.errorMessage});
+
+
 }

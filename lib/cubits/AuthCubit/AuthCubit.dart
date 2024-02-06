@@ -4,6 +4,8 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../../Models/signUpModel.dart';
 import '../../Models/signin_model.dart';
+
+import '../../Models/user_model.dart';
 import '../../cache/cache_helper.dart';
 import '../../helper/api/api_consumer.dart';
 import '../../helper/api/end_ponits.dart';
@@ -83,6 +85,25 @@ class UserCubit extends Cubit<UserState>{
       emit(SignInSuccess());
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+
+
+
+  getUserProfile( id) async {
+    try {
+      emit(UserLoading());
+      final response = await api.get(
+          EndPoint.signIn,
+          queryParameters: {
+            id: CacheHelper().getData(key: ApiKey.id )
+          });
+
+
+      emit(UserSuccess(user: UserModel.fromJson(response)));
+    } on ServerException catch (e) {
+      emit(Userfailer(errorMessage: e.errModel.errorMessage));
     }
   }
 

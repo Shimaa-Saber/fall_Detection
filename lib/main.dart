@@ -18,7 +18,7 @@ void main() {
   CacheHelper().init();
 
   runApp(
-      BlocProvider(
+        BlocProvider(
         create: (context) => UserCubit(DioConsumer(dio: Dio())),
 
           child: const FallDetectionApp()));

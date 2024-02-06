@@ -1,4 +1,5 @@
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
+import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/widgets/notification_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,9 @@ class Notifications extends StatelessWidget {
                     padding:
                     const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
                     child: IconButton(
-                      onPressed: () {  },
+                      onPressed: () {
+                        Navigator.pushNamed(context, MapPage.id);
+                      },
                       icon: Icon(
                         FontAwesomeIcons.solidMap,
                         color: Colors.black,
