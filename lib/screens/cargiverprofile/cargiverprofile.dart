@@ -224,6 +224,7 @@ class Cargiverprofile extends StatelessWidget {
                         const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
                         child: IconButton(
                           onPressed: () {
+                            
                             Navigator.pushNamed(context, Notifications.id);
                           },
                           icon: Icon(
@@ -237,6 +238,7 @@ class Cargiverprofile extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 10.0),
                         child: IconButton(
                           onPressed: () {
+                            context.read<UserCubit>().getUserProfile(id);
                             Navigator.pushNamed(context, Cargiverprofile.id);
                           },
                           icon: Icon(

@@ -137,7 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               Controller:  context.read<UserCubit>().signUpGender,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return ('You must enter your the gender');
+                                  return ('You must enter your gender');
                                 } else {
                                   return null;
                                 }
@@ -154,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               Controller:  context.read<UserCubit>().signUpPhoneNumber,
                               validator: (value) {
                                 if (value!.isEmpty || value.length < 11) {
-                                  return ('You must enter your the phone');
+                                  return ('You must enter your phone');
                                 } else {
                                   return null;
                                 }

@@ -53,7 +53,13 @@ class UserCubit extends Cubit<UserState>{
           ApiKey.userPhoneNumber: signUpPhoneNumber.text,
           ApiKey.userEmail: signUpEmail.text,
           ApiKey.password: signUpPassword.text,
-          ApiKey.userGender: signUpGender.text
+          ApiKey.userGender: signUpGender.text,
+          ApiKey.country: "ssss",
+          ApiKey.photo:"ggggg",
+          ApiKey.userDOB:'2024-02-06T17:59:46.530Z',
+          ApiKey.emergencyContactName:"iiiiii",
+          ApiKey.emergencyContactPhoneNumber:"ddddd"
+
 
 
           //ApiKey.profilePic: await uploadImageToAPI(profilePic!)

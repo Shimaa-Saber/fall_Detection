@@ -21,4 +21,6 @@ class ApiKey {
   static String photo = "photo";
   static String country = "country";
   static String userGender = "userGender";
+  static String emergencyContactName = "emergencyContactName";
+  static String emergencyContactPhoneNumber = "emergencyContactPhoneNumber";
 }
