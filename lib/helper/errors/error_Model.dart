@@ -9,10 +9,10 @@ class ErrorModel {
   final String errorMessage;
 
   ErrorModel({required this.status, required this.errorMessage});
-  factory ErrorModel.fromJson(Map<String, dynamic> jsonData) {
+  factory ErrorModel.fromJson(dynamic jsonData) {
     return ErrorModel(
-      status: jsonData[ApiKey.status],
-      errorMessage: jsonData[ApiKey.errorMessage],
+      status: 500,
+      errorMessage: jsonData,
     );
   }
 }
