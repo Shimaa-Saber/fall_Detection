@@ -18,9 +18,9 @@ class SignInFailure extends UserState {
 class SignUpLoading extends UserState {}
 
 class SignUpSuccess extends UserState {
-  final String message;
+  final int id;
 
-  SignUpSuccess({required this.message});
+  SignUpSuccess({required this.id});
 }
 
 class SignUpFailure extends UserState {

@@ -48,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
         listener: (context, state) {
       if(state is SignUpSuccess){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(state.message),
+          content: Text(state.id as String),
 
         ));
         Navigator.pushNamed(context, homepageView.id);

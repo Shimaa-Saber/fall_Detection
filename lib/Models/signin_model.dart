@@ -1,15 +1,15 @@
 import '../helper/api/end_ponits.dart';
 
 class SignInModel {
-  final String message;
-  final String token;
+  final String email;
+  final String id;
 
-  SignInModel({required this.message, required this.token});
+  SignInModel({required this.email, required this.id});
 
   factory SignInModel.fromJson(Map<String, dynamic> jsonData) {
     return SignInModel(
-      message: jsonData[ApiKey.message],
-      token: jsonData[ApiKey.token],
+      email: jsonData[ApiKey.userEmail],
+      id: jsonData[ApiKey.id],
     );
   }
 }

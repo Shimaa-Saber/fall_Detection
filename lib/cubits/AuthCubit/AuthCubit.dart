@@ -46,7 +46,6 @@ class UserCubit extends Cubit<UserState>{
       emit(SignUpLoading());
       final response = await api.post(
         EndPoint.signUp,
-
         //isFromData: true,
         data: {
           ApiKey.userName: signUpName.text,
@@ -60,13 +59,10 @@ class UserCubit extends Cubit<UserState>{
           ApiKey.emergencyContactName:"iiiiii",
           ApiKey.emergencyContactPhoneNumber:"ddddd"
 
-
-
-          //ApiKey.profilePic: await uploadImageToAPI(profilePic!)
         },
       );
       final signUPModel = SignUpModel.fromJson(response);
-      emit(SignUpSuccess(message: signUPModel.message));
+      emit(SignUpSuccess(id: signUPModel.id));
     } on ServerException catch (e) {
       emit(SignUpFailure(errMessage: e.errModel.errorMessage));
     }
@@ -85,9 +81,9 @@ class UserCubit extends Cubit<UserState>{
         },
       );
       user = SignInModel.fromJson(response);
-      final decodedToken = JwtDecoder.decode(user!.token);
-      CacheHelper().saveData(key: ApiKey.token, value: user!.token);
-      CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      //final decodedToken = JwtDecoder.decode(user!.token);
+      CacheHelper().saveData(key: ApiKey.id, value: user!.id);
+     // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
       emit(SignInSuccess());
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errModel.errorMessage));

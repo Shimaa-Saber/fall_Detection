@@ -1,10 +1,10 @@
 import '../helper/api/end_ponits.dart';
 
 class SignUpModel {
-  final String message;
+  final int id;
 
-  SignUpModel({required this.message});
+  SignUpModel({required this.id});
   factory SignUpModel.fromJson(Map<String, dynamic> jsonData) {
-    return SignUpModel(message: jsonData[ApiKey.message]);
+    return SignUpModel(id: jsonData[ApiKey.id]);
   }
 }
