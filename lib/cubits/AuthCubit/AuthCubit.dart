@@ -48,16 +48,14 @@ class UserCubit extends Cubit<UserState>{
         EndPoint.signUp,
         //isFromData: true,
         data: {
-          ApiKey.userName: signUpName.text,
-          ApiKey.userPhoneNumber: signUpPhoneNumber.text,
-          ApiKey.userEmail: signUpEmail.text,
-          ApiKey.password: signUpPassword.text,
-          ApiKey.userGender: signUpGender.text,
-          ApiKey.country: "ssss",
-          ApiKey.photo:"ggggg",
-          ApiKey.userDOB:'2024-02-06T17:59:46.530Z',
-          ApiKey.emergencyContactName:"iiiiii",
-          ApiKey.emergencyContactPhoneNumber:"ddddd"
+          ApiKey.contactName: signUpName.text,
+          ApiKey.contactPhoneNumber: signUpPhoneNumber.text,
+          ApiKey.contactEmail: signUpEmail.text,
+          ApiKey.contactPassword: signUpPassword.text,
+          ApiKey.gender: signUpGender.text,
+          ApiKey.relationship:"",
+          ApiKey.contactPhoto:"",
+          ApiKey.userID:53,
 
         },
       );
