@@ -81,7 +81,7 @@ class Cargiverprofile extends StatelessWidget {
                       children: [
 
                         Text(
-                          state.user.userName,
+                          state.user.contactName,
                           style: TextStyle(
                             color: Color(0xFF171A1F),
                             fontSize: 24,
@@ -94,7 +94,7 @@ class Cargiverprofile extends StatelessWidget {
                         Center(
                           child: Row(children: [
                             IconButton(onPressed: (){}, icon: Icon(Icons.phone,color: Colors.black,)),
-                            Text(state.user.userPhoneNumber,style: Styles.TextStyle12,)
+                            Text(state.user.contactPhoneNumber,style: Styles.TextStyle12,)
                           ],),
                         )
                       ],

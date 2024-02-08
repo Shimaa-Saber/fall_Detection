@@ -95,7 +95,7 @@ class UserCubit extends Cubit<UserState>{
     try {
       emit(UserLoading());
       final response = await api.get(
-          EndPoint.signIn,
+          EndPoint.getUserData,
           queryParameters: {
             id: CacheHelper().getData(key: ApiKey.id )
           });

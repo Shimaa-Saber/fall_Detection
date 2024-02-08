@@ -2,6 +2,7 @@ class EndPoint {
   static String baseUrl = "http://falldetect.somee.com/";
   static String signIn = "api/User";
   static String signUp = "api/Caregiver/SignUp/";
+  static String getUserData = "/api/Caregiver/GetCaregiversById";
   static String getUserDataEndPoint(id) {
     return "api/User$id";
   }
