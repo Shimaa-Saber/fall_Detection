@@ -3,9 +3,8 @@ class EndPoint {
   static String signIn = "api/User";
   static String signUp = "api/Caregiver/SignUp/";
   static String getUserData = "/api/Caregiver/GetCaregiversById";
-  static String getUserDataEndPoint(id) {
-    return "api/User$id";
-  }
+  static String caregiverByEmail="/api/Caregiver/CaregiverByEmail";
+
 }
 
 class ApiKey {
@@ -35,5 +34,6 @@ class ApiKey {
   static String relationship = "relationship";
   static String gender = "gender";
   static String userID = "userID";
+  static String emergencyContactID = "emergencyContactID";
 
 }

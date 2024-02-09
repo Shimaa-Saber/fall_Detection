@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
 
                           if ((context.read<UserCubit>().signInFormKey).currentState!.validate()) {
-                            context.read<UserCubit>().signIn();
+                            context.read<UserCubit>().SignIn();
                             print('valid');
                           } else {
                             print('not valid');

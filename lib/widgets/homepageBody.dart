@@ -1,6 +1,7 @@
 
 
 import 'package:fall_detection_app/constants/constants.dart';
+import 'package:fall_detection_app/cubits/AuthCubit/AuthCubit.dart';
 import 'package:fall_detection_app/helper/Styles.dart';
 import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart';
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
@@ -10,6 +11,7 @@ import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'PatiantsListView.dart';
@@ -134,6 +136,7 @@ class HomepageViewBody extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
+                        context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
                       icon: Icon(

@@ -47,7 +47,7 @@ class Cargiverprofile extends StatelessWidget {
           ),
 
 
-          body:  state is UserLoading? const CircularProgressIndicator():
+          body:  state is UserLoading? Center(child: const CircularProgressIndicator()):
               state is UserSuccess?
             SingleChildScrollView(
             physics: BouncingScrollPhysics(),
@@ -238,7 +238,7 @@ class Cargiverprofile extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 10.0),
                         child: IconButton(
                           onPressed: () {
-                            context.read<UserCubit>().getUserProfile(id);
+                            context.read<UserCubit>().getUserProfile();
                             Navigator.pushNamed(context, Cargiverprofile.id);
                           },
                           icon: Icon(

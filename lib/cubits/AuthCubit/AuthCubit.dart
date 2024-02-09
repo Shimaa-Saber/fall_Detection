@@ -1,8 +1,10 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../../Models/signUpModel.dart';
+
 import '../../Models/signin_model.dart';
 
 import '../../Models/user_model.dart';
@@ -67,43 +69,68 @@ class UserCubit extends Cubit<UserState>{
   }
 
 
-  SignInModel? user;
-  signIn() async {
+
+ /* signIn() async {
     try {
       emit(SignInLoading());
       final response = await api.post(
         EndPoint.signIn,
         data: {
-          ApiKey.userEmail: signInEmail.text,
-          ApiKey.password: signInPassword.text,
+          ApiKey.contactEmail: signInEmail.text,
+          ApiKey.contactPassword: signInPassword.text,
         },
       );
       user = SignInModel.fromJson(response);
       //final decodedToken = JwtDecoder.decode(user!.token);
-      CacheHelper().saveData(key: ApiKey.id, value: user!.id);
+     // CacheHelper().saveData(key: ApiKey.id, value: user!.id);
      // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
       emit(SignInSuccess());
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errModel.errorMessage));
     }
   }
+*/
 
+  SignInModel? user;
 
-
-
-  getUserProfile( id) async {
+  getUserProfile( ) async {
     try {
       emit(UserLoading());
+      final id = CacheHelper().getData(key: ApiKey.emergencyContactID);
       final response = await api.get(
           EndPoint.getUserData,
           queryParameters: {
-            id: CacheHelper().getData(key: ApiKey.id )
+            'id': id
           });
 
 
       emit(UserSuccess(user: UserModel.fromJson(response)));
     } on ServerException catch (e) {
       emit(Userfailer(errorMessage: e.errModel.errorMessage));
+    }
+  }
+
+
+
+
+
+
+ // signIn userr;
+  SignIn() async {
+    try {
+      emit(SignInLoading());
+
+      final response = await api.get(
+        '${EndPoint.caregiverByEmail}?Email=${signInEmail.text}',
+      );
+
+      user = SignInModel.fromJson(response);
+
+      CacheHelper().saveData(key: ApiKey.emergencyContactID, value: user!.emergencyContactID);
+
+      emit(SignInSuccess());
+    } on ServerException catch (e) {
+      emit(SignInFailure(errMessage: e.errModel.errorMessage));
     }
   }
 

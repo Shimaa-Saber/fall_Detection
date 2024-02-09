@@ -4,8 +4,10 @@ import 'package:fall_detection_app/widgets/notification_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../cubits/AuthCubit/AuthCubit.dart';
 import '../cargiverprofile/cargiverprofile.dart';
 
 class Notifications extends StatelessWidget {
@@ -105,6 +107,7 @@ class Notifications extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
+                        context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
                       icon: Icon(
