@@ -140,16 +140,20 @@ class UserCubit extends Cubit<UserState>{
 
 
 
-  getPatientcontact() async {
+  /*getPatientcontact() async {
     try {
       emit(ContactLoadingState());
+
       final id = CacheHelper().getData(key: ApiKey.id);
+
       final  response=await api.get(
+
           EndPoint.getPatientData,
           queryParameters: {
-            ApiKey.id: id,
+            'id': id,
 
           });
+
 
 
       emit(ContactSucessState(patientContact: UserModel.fromJson(response),
@@ -159,7 +163,39 @@ class UserCubit extends Cubit<UserState>{
     } on ServerException catch (e) {
       emit(ContactFailureState(errormsg: e.errModel.errorMessage));
     }
+  }*/
+
+
+
+
+  getPatientcontact() async {
+    try {
+      emit(ContactLoadingState());
+
+      final id = CacheHelper().getData(key: ApiKey.id);
+
+      final response = await api.get(
+        EndPoint.getPatientData,
+        queryParameters: {'id': id},
+      );
+
+      // Assuming the response is a List<dynamic>
+      if (response is List<dynamic>) {
+        // You might want to iterate through the list if needed
+        List<UserModel> userList = response.map((user) {
+          return UserModel.fromJson(user);
+        }).toList();
+
+        emit(ContactSucessState( patientContact: userList));
+      } else {
+        // Handle other cases if needed
+        emit(ContactFailureState(errormsg: "Invalid response format"));
+      }
+    } on ServerException catch (e) {
+      emit(ContactFailureState(errormsg: e.errModel.errorMessage));
+    }
   }
+
 
 
 
@@ -174,9 +210,11 @@ class UserCubit extends Cubit<UserState>{
           ApiKey.password: signInPassword.text,
         },
       );
+      Map<String ,dynamic> data=response.data;
+      CacheHelper().saveData(key: ApiKey.id, value:data[ApiKey.id] );
       patient = SignInForPatiant.fromJson(response);
 
-      CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
+      //CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
 
       emit(PatientSignInSuccess());
     } on ServerException catch (e) {

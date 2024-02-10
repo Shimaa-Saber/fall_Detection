@@ -63,7 +63,7 @@ class PatientInfo extends StatelessWidget {
                     left: 140,
                     top: 180,
                     child: Text(
-                      state.patientContact.contactName,
+                      state.patientContact[1].userName,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
@@ -88,7 +88,7 @@ class PatientInfo extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            state.patientContact.userGender,
+                            state.patientContact[0].userGender,
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -114,7 +114,7 @@ class PatientInfo extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            state.patientContact.userGender,
+                            state.patientContact[5].userGender,
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -129,7 +129,7 @@ class PatientInfo extends StatelessWidget {
                     top: 300,
                     child: PatientDetail(
                       label: 'Name',
-                      value: state.patientContact.contactName,
+                      value: state.patientContact[9].emergencyContactName,
                     ),
                   ),
                   Positioned(
@@ -137,7 +137,7 @@ class PatientInfo extends StatelessWidget {
                     top: 380,
                     child: PatientDetail(
                       label: 'Date of Birth',
-                      value: state.patientContact.userDOB,
+                      value: state.patientContact[4].userDOB,
                     ),
                   ),
                   Positioned(
@@ -145,7 +145,7 @@ class PatientInfo extends StatelessWidget {
                     top: 460,
                     child: PatientDetail(
                       label: 'Phone Number',
-                      value: state.patientContact.userPhoneNumber,
+                      value: state.patientContact[6].userPhoneNumber,
                     ),
                   ),
                   Positioned(
@@ -153,7 +153,7 @@ class PatientInfo extends StatelessWidget {
                     top: 550,
                     child: PatientDetail(
                       label: 'Emergency Contact',
-                      value: state.patientContact.emergencyContactPhoneNumber,
+                      value: state.patientContact[10].emergencyContactPhoneNumber,
                     ),
                   ),
                   Positioned(
