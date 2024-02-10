@@ -1,4 +1,5 @@
 
+import 'package:fall_detection_app/Models/Sign_inForPatiant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -131,6 +132,54 @@ class UserCubit extends Cubit<UserState>{
       emit(SignInSuccess());
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+
+
+
+
+
+  getPatientcontact(id) async {
+    try {
+      emit(ContactLoadingState());
+      final  response=await api.get(
+          EndPoint.getPatientData,
+          queryParameters: {
+            ApiKey.id: id,
+
+          });
+
+
+      emit(ContactSucessState(patientContact: UserModel.fromJson(response),
+
+      )
+      );
+    } on ServerException catch (e) {
+      emit(ContactFailureState(errormsg: e.errModel.errorMessage));
+    }
+  }
+
+
+
+  SignInForPatiant? patient;
+  PatientSigninignIn() async {
+    try {
+      emit(PatientLoadingSignin());
+      final response = await api.get(
+        EndPoint.PatientSignin,
+        queryParameters: {
+          ApiKey.userEmail: signInEmail.text,
+          ApiKey.password: signInPassword.text,
+        },
+      );
+      patient = SignInForPatiant.fromJson(response);
+      //final decodedToken = JwtDecoder.decode(user!.token);
+      CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
+      // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      emit(PatientSignInSuccess());
+    } on ServerException catch (e) {
+      emit(PatientSigninFailure(errmsg: e.errModel.errorMessage));
     }
   }
 

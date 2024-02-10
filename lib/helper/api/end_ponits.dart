@@ -4,6 +4,8 @@ class EndPoint {
   static String signUp = "api/Caregiver/SignUp/";
   static String getUserData = "/api/Caregiver/GetCaregiversById";
   static String caregiverByEmail="/api/Caregiver/CaregiverByEmail";
+  static String PatientSignin = "api/Patient/GetUserByEmail/";
+  static String getPatientData = "/api/Patient/GetPatientsById";
 
 }
 
