@@ -140,9 +140,10 @@ class UserCubit extends Cubit<UserState>{
 
 
 
-  getPatientcontact(id) async {
+  getPatientcontact() async {
     try {
       emit(ContactLoadingState());
+      final id = CacheHelper().getData(key: ApiKey.id);
       final  response=await api.get(
           EndPoint.getPatientData,
           queryParameters: {
@@ -174,9 +175,9 @@ class UserCubit extends Cubit<UserState>{
         },
       );
       patient = SignInForPatiant.fromJson(response);
-      //final decodedToken = JwtDecoder.decode(user!.token);
+
       CacheHelper().saveData(key: ApiKey.id, value: patient!.id);
-      // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+
       emit(PatientSignInSuccess());
     } on ServerException catch (e) {
       emit(PatientSigninFailure(errmsg: e.errModel.errorMessage));

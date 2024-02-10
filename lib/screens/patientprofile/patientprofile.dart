@@ -7,15 +7,23 @@ import '../../widgets/patientdetails.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class PatientInfo extends StatelessWidget {
   const PatientInfo({Key? key}) : super(key: key);
+  static String id ="patiantProfile";
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserCubit, UserState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if(state is ContactFailureState){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errormsg),
+            ),
+          );
+        }
+      },
       builder: (context, state) {
-        if (state is ContactFailureState) {
-          return Text('error, try later');
-        } else if (state is ContactSucessState) {
+
+
           return Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
@@ -29,7 +37,9 @@ class PatientInfo extends StatelessWidget {
                 },
               ),
             ),
-            body: Container(
+            body: state is ContactLoadingState ? Center(child: const CircularProgressIndicator()):
+                state is ContactSucessState?
+            Container(
               child: Stack(
                 children: [
                   Positioned(
@@ -203,11 +213,9 @@ class PatientInfo extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ):Container(),
           );
-        } else {
-          return CircularProgressIndicator(); // Handle loading state
-        }
+
       },
     );
   }
