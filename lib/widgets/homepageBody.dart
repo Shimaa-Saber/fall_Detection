@@ -136,7 +136,7 @@ class HomepageViewBody extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: IconButton(
                       onPressed: () {
-                       // context.read<UserCubit>().getUserProfile();
+                        context.read<UserCubit>().getUserProfile();
                         Navigator.pushNamed(context, Cargiverprofile.id);
                       },
                       icon: Icon(
