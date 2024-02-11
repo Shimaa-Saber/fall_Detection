@@ -59,51 +59,60 @@ class Cargiverprofile extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40,),
-            Row(
+            Container(
+              height: size.width*0.17,
+              child: Center(
+                child: ListView(
+                  shrinkWrap: true,
 
-              children: [
-                SizedBox(width: 135,),
-                Column(
+
+                  scrollDirection: Axis.horizontal,
+
                   children: [
+                    SizedBox(width: 135,),
+                    Column(
+                      children: [
 
-                    Text(
-                      "Jone",
-                      style: TextStyle(
-                        color: Color(0xFF171A1F),
-                        fontSize: 24,
-                        fontFamily: 'Lexend',
-                        fontWeight: FontWeight.w900,
-                        height: 0.06,
-                      ),
+                        Text(
+                          "Jone Doe",
+                          style: TextStyle(
+                            color: Color(0xFF171A1F),
+                            fontSize: 24,
+                            fontFamily: 'Lexend',
+                            fontWeight: FontWeight.w900,
+                            height: 0.06,
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Center(
+                          child: Row(children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.phone,color: Colors.black,)),
+                            Text("+23456789765",style: Styles.TextStyle12,)
+                          ],),
+                        )
+                      ],
                     ),
-                    SizedBox(height: 10,),
-                    Center(
-                      child: Row(children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.phone,color: Colors.black,)),
-                        Text("+23456789765",style: Styles.TextStyle12,)
-                      ],),
+                    SizedBox(width: 47,)
+                    ,
+                    GestureDetector(
+                      onTap: (){},
+                      child: Container(
+                        width: 46,
+                        height: 45,
+                        decoration: ShapeDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/chat.png"),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                        ),
+                      ),
                     )
+
+
                   ],
                 ),
-                SizedBox(width: 47,)
-                ,
-                GestureDetector(
-                  onTap: (){},
-                  child: Container(
-                    width: 46,
-                    height: 45,
-                    decoration: ShapeDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/chat.png"),
-                        fit: BoxFit.cover,
-                      ),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                    ),
-                  ),
-                )
-
-
-              ],
+              ),
             ),
 
             SizedBox(height: 35,),

@@ -5,6 +5,6 @@ class SignUpModel {
 
   SignUpModel({required this.id});
   factory SignUpModel.fromJson(Map<String, dynamic> jsonData) {
-    return SignUpModel(id: jsonData[ApiKey.id]);
+    return SignUpModel( id: jsonData[ApiKey.id] != null ? jsonData[ApiKey.id] as int : 0,);
   }
 }

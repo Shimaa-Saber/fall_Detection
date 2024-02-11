@@ -39,179 +39,189 @@ class PatientInfo extends StatelessWidget {
             ),
             body: state is ContactLoadingState ? Center(child: const CircularProgressIndicator()):
                 state is ContactSucessState?
-            Container(
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 140,
-                    top: 60,
-                    child: Container(
-                      width: 104,
-                      height: 106,
-                      decoration: ShapeDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage("lib/assets/images/patient.png"),
-                          fit: BoxFit.cover,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 140,
-                    top: 180,
-                    child: Text(
-                      state.patientContact[1].userName,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 23,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 220,
-                    left: 60,
-                    right: 230,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
+            SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      height:900 ,
+                      child: Stack(
                         children: [
-                          Text(
-                            state.patientContact[0].userGender,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
+                          Positioned(
+                            left: 140,
+                            top: 60,
+                            child: Container(
+                              width: 104,
+                              height: 106,
+                              decoration: ShapeDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage("assets/images/patient.png"),
+                                  fit: BoxFit.cover,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 140,
+                            top: 180,
+                            child: Text(
+                              state.patientContact[1].userName,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 23,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 220,
+                            left: 60,
+                            right: 230,
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                   'Gender',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 220,
+                            left: 200,
+                            right: 112,
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                   // "ddd",
+                                    state.patientContact[5].userGender,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 26,
+                            top: 300,
+                            child: PatientDetail(
+                              label: 'Name',
+                              value: state.patientContact[9].emergencyContactName,
+                            ),
+                          ),
+                          Positioned(
+                            left: 26,
+                            top: 380,
+                            child: PatientDetail(
+                              label: 'Date of Birth',
+                              value: state.patientContact[4].userDOB,
+                            ),
+                          ),
+                          Positioned(
+                            left: 26,
+                            top: 460,
+                            child: PatientDetail(
+                              label: 'Phone Number',
+                              value: state.patientContact[6].userPhoneNumber,
+                            ),
+                          ),
+                          Positioned(
+                            left: 26,
+                            top: 550,
+                            child: PatientDetail(
+                              label: 'Emergency Contact',
+                              value: state.patientContact[10].emergencyContactPhoneNumber,
+                            ),
+                          ),
+                          Positioned(
+                            left: 26,
+                            top: 640,
+                            child: Text(
+                              'Contact List',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 700,
+                            left: 26,
+                            right: 26,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ContactContainer(text: 'Mother'),
+                                ),
+                                SizedBox(width: 20),
+                                Expanded(
+                                  child: ContactContainer(text: 'Friend'),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: 780,
+                            left: 26,
+                            right: 26,
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Edit Details',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 220,
-                    left: 200,
-                    right: 112,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            state.patientContact[5].userGender,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 26,
-                    top: 300,
-                    child: PatientDetail(
-                      label: 'Name',
-                      value: state.patientContact[9].emergencyContactName,
-                    ),
-                  ),
-                  Positioned(
-                    left: 26,
-                    top: 380,
-                    child: PatientDetail(
-                      label: 'Date of Birth',
-                      value: state.patientContact[4].userDOB,
-                    ),
-                  ),
-                  Positioned(
-                    left: 26,
-                    top: 460,
-                    child: PatientDetail(
-                      label: 'Phone Number',
-                      value: state.patientContact[6].userPhoneNumber,
-                    ),
-                  ),
-                  Positioned(
-                    left: 26,
-                    top: 550,
-                    child: PatientDetail(
-                      label: 'Emergency Contact',
-                      value: state.patientContact[10].emergencyContactPhoneNumber,
-                    ),
-                  ),
-                  Positioned(
-                    left: 26,
-                    top: 640,
-                    child: Text(
-                      'Contact List',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 700,
-                    left: 26,
-                    right: 26,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: ContactContainer(text: 'Mother'),
-                        ),
-                        SizedBox(width: 20),
-                        Expanded(
-                          child: ContactContainer(text: 'Friend'),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 780,
-                    left: 26,
-                    right: 26,
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Edit Details',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ):Container(),
           );
