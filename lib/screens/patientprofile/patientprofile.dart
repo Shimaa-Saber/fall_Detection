@@ -68,7 +68,7 @@ class PatientInfo extends StatelessWidget {
                             left: 155,
                             top: 180,
                             child: Text(
-                              state.patientContact[0].userName,
+                              state.patientContact[1].userName,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
@@ -128,7 +128,7 @@ class PatientInfo extends StatelessWidget {
                                 children: [
                                   Text(
                                    // "ddd",
-                                    state.patientContact[0].userGender,
+                                    state.patientContact[1].userGender,
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
@@ -144,7 +144,7 @@ class PatientInfo extends StatelessWidget {
                             child: PatientDetail(
                               label: 'Name',
 
-                              value: state.patientContact[0].emergencyContactName,
+                              value: state.patientContact[1].userName,
                             ),
                           ),
                           Positioned(
@@ -152,7 +152,10 @@ class PatientInfo extends StatelessWidget {
                             top: 380,
                             child: PatientDetail(
                               label: 'Date of Birth',
-                              value: state.patientContact[0].userDOB,
+                             value:'${StringToDateTime(state.patientContact[1].userDOB).year}-'
+                                 '${StringToDateTime(state.patientContact[1].userDOB).month}-'
+                                 '${StringToDateTime(state.patientContact[1].userDOB).day}',
+                             // value: state.patientContact[1].userDOB.toString(),
                             ),
                           ),
                           Positioned(
@@ -160,7 +163,7 @@ class PatientInfo extends StatelessWidget {
                             top: 460,
                             child: PatientDetail(
                               label: 'Phone Number',
-                              value: state.patientContact[0].userPhoneNumber,
+                              value: state.patientContact[1].userPhoneNumber,
                             ),
                           ),
                           Positioned(
@@ -168,7 +171,7 @@ class PatientInfo extends StatelessWidget {
                             top: 550,
                             child: PatientDetail(
                               label: 'Emergency Contact',
-                              value: state.patientContact[0].emergencyContactPhoneNumber,
+                              value: state.patientContact[1].emergencyContactPhoneNumber,
                             ),
                           ),
                           Positioned(
@@ -238,4 +241,9 @@ class PatientInfo extends StatelessWidget {
       },
     );
   }
+}
+
+
+DateTime StringToDateTime (String value){
+  return DateTime.parse(value);
 }
