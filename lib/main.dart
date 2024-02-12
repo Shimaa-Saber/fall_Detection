@@ -6,6 +6,7 @@ import 'package:fall_detection_app/screens/homepage/homepage.dart';
 import 'package:fall_detection_app/screens/initial/initial_page.dart';
 import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/screens/notifications/notifications.dart';
+
 import 'package:fall_detection_app/screens/patientprofile/patientprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +42,7 @@ class FallDetectionApp extends StatelessWidget {
         Notifications.id:((context)=>Notifications()),
         MapPage.id:((context)=>MapPage()),
         PatientInfo.id:((context)=>PatientInfo()),
+
 
       },
       initialRoute: InitialPage.id,

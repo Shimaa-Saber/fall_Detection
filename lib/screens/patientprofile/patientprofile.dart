@@ -65,7 +65,7 @@ class PatientInfo extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            left: 140,
+                            left: 155,
                             top: 180,
                             child: Text(
                               state.patientContact[0].userName,
@@ -80,9 +80,11 @@ class PatientInfo extends StatelessWidget {
                           Positioned(
                             top: 220,
                             left: 60,
-                            right: 230,
+                            right: 200,
                             child: Container(
-                              padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              width: 114,
+                              height: 44,
+                             // padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.black,
@@ -91,12 +93,15 @@ class PatientInfo extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
-                                   'Gender',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                  Center(
+                                    child: Text(
+                                     'Gender',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -106,9 +111,11 @@ class PatientInfo extends StatelessWidget {
                           Positioned(
                             top: 220,
                             left: 200,
-                            right: 112,
+                            right: 120,
                             child: Container(
-                              padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              //padding: EdgeInsets.fromLTRB(20, 17, 30, 14),
+                              width: 90,
+                              height: 44,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.black,
@@ -117,13 +124,14 @@ class PatientInfo extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                    // "ddd",
                                     state.patientContact[0].userGender,
                                     style: TextStyle(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                 ],
@@ -135,6 +143,7 @@ class PatientInfo extends StatelessWidget {
                             top: 300,
                             child: PatientDetail(
                               label: 'Name',
+
                               value: state.patientContact[0].emergencyContactName,
                             ),
                           ),
@@ -210,7 +219,7 @@ class PatientInfo extends StatelessWidget {
                                     'Edit Details',
                                     style: TextStyle(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ],

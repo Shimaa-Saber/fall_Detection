@@ -7,6 +7,7 @@ import 'package:fall_detection_app/screens/cargiverprofile/cargiverprofile.dart'
 import 'package:fall_detection_app/screens/homepage/homepage.dart';
 import 'package:fall_detection_app/screens/map/map.dart';
 import 'package:fall_detection_app/screens/notifications/notifications.dart';
+
 import 'package:fall_detection_app/widgets/patiantdetailsListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,9 @@ class HomepageViewBody extends StatelessWidget {
         titleTextStyle: Styles.TextStyle18,
         centerTitle: true,
         actions: [
-          IconButton(icon: Icon(Icons.search),onPressed: (){},)
+          IconButton(icon: Icon(Icons.search),onPressed: (){
+
+          },)
         ],
       ),
         body: SingleChildScrollView(

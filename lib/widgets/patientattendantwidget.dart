@@ -21,7 +21,7 @@ class ContactContainer extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
