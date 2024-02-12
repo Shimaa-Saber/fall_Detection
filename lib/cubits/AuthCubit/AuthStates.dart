@@ -53,7 +53,7 @@ class ContactLoadingState extends UserState {}
 class ContactSucessState extends UserState {
   final   List<UserModel> patientContact;
 
-  ContactSucessState({required this.patientContact});
+  ContactSucessState({required this.patientContact,});
 
 
 }

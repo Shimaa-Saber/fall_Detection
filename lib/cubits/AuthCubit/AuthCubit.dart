@@ -174,6 +174,7 @@ class UserCubit extends Cubit<UserState>{
 
       final id = CacheHelper().getData(key: ApiKey.id);
 
+
       final response = await api.get(
         EndPoint.getPatientData,
         queryParameters: {'id': id},
@@ -192,6 +193,24 @@ class UserCubit extends Cubit<UserState>{
       emit(ContactFailureState(errormsg: e.errModel.errorMessage));
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,3 +242,5 @@ class UserCubit extends Cubit<UserState>{
 
 
 }
+
+
