@@ -202,7 +202,7 @@ class _MapPageState extends State<MapPage> {
                 userData['fallLocation_Lat'], userData['fallLocation_Long']),
             infoWindow: InfoWindow(
               title: "Detail ID: ${userData['detailID']}",
-              snippet: "Fall Event ID: ${userData['fallEventID']}",
+              snippet: "Fall  Event ID: ${userData['fallEventID']}",
             ),
             onTap: () {
               context.read<UserCubit>().getPatientcontact();
